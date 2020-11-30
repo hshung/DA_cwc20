@@ -2,7 +2,7 @@
 title: "Manual action motivates networked meanings of [dǎ – NP]"
 author: "Steffi H. Hung"
 date: "11/29/2020"
-output: ioslides_presentation
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -38,7 +38,7 @@ wc_BCC %>%
 ```
 
 ```{r echo=FALSE, message=FALSE}
-# 135 types of [dǎ – NP] from CCL in a wordcloud
+# 257 types of [dǎ – NP] from BCC in a wordcloud
 wc_CCL <- import(here("data","wc_CCL.xlsx")) 
 windowsFont(family = "SimHei")
 windowsFonts(simhei = windowsFont(family = "SimHei"))
