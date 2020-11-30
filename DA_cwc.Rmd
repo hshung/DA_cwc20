@@ -1,0 +1,58 @@
+---
+title: "Manual action motivates networked meanings of [dǎ – NP]"
+author: "Steffi H. Hung"
+date: "11/29/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE)
+library(wordcloud)
+library(RColorBrewer)
+library(dplyr)
+library(here)
+library(rio)
+library(reshape2)
+library(showtext)
+```
+
+```{r echo=FALSE, message=FALSE}
+# 257 types of [dǎ – NP] from BCC in a wordcloud
+wc_BCC <- import(here("data","wc_BCC.xlsx"))
+windowsFont(family = "SimHei")
+windowsFonts(simhei = windowsFont(family = "SimHei"))
+set.seed(257)
+wc_BCC %>%
+  acast(item ~ cluster, sort = TRUE, value.var = "frequency", fill = 0) %>%
+  comparison.cloud(scale = c(3.5,0.5), max.words = 150,
+                   random.order = FALSE, rot.per = .05,
+                   colors = c("blue4", "blue", 
+                              "purple4", "purple", 
+                              "violet", "slategray3"),
+                   family = "simhei", 
+                   use.r.layout = FALSE,
+                   title.size = 1.5, 
+                   title.colors = c("black"),
+                   title.bg.colors = c("grey90")
+                   )
+```
+
+```{r echo=FALSE, message=FALSE}
+# 135 types of [dǎ – NP] from CCL in a wordcloud
+wc_CCL <- import(here("data","wc_CCL.xlsx")) 
+windowsFont(family = "SimHei")
+windowsFonts(simhei = windowsFont(family = "SimHei"))
+set.seed(135)
+wc_CCL %>%
+  acast(item ~ cluster, sort = TRUE, value.var = "frequency", fill = 0) %>%
+  comparison.cloud(scale = c(4,0.5), max.words = 150,
+                   random.order = FALSE, rot.per = .05,
+                   colors = c("blue4", "blue", 
+                              "purple4", "purple", 
+                              "violet", "slategray3"),
+                   family = "simhei",  
+                   use.r.layout = FALSE, title.size = 1.5,
+                   title.colors = c("black"),
+                   title.bg.colors = c("grey90"),
+                    )
+```
